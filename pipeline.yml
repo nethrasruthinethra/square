@@ -22,6 +22,7 @@ pipelines:
           my_env_var: "hello" 
     steps:
       - name: step_1
+        projects: SquareApp.csproj
         type: Bash
         configuration:
           inputResources:
