@@ -1,0 +1,51 @@
+resources:
+  - name: mydotRepo
+    type: GitRepo
+    configuration:
+      gitProvider: my_github
+      path: nethrasruthinethra/square # replace jfrog with your username or org name
+      branches:
+        include: main
+        
+  - name: mydotInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: hello
+      buildName: SampleApp
+      buildNumber: 1   
+      
+pipelines: 
+  - name: my_pipeline
+    configuration:
+      environmentVariables:
+        readOnly:
+          my_env_var: "hello" 
+    steps:
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: myRepo
+          outputResources:
+            - name: myInfo            
+        execution:
+          onExecute:
+            - echo $my_env_var
+            - if [ -z $app_version ]; then add_pipeline_variables app_version=1.0.0; else app_version=$(bump_semver $app_version minor); fi
+            - write_output myInfo "buildNumber=$app_version"
+            - add_run_variables run_var="hello"
+      - name: step_2
+        type: Bash
+        configuration:
+          inputResources:
+            - name: myInfo           
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions: ['11']
+        execution:
+          onExecute:
+            - echo $run_var 
+            - echo $res_myInfo_buildNumber
