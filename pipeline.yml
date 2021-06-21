@@ -10,7 +10,7 @@ resources:
   - name: mydotInfo
     type: BuildInfo
     configuration:
-      sourceArtifactory: default
+      sourceArtifactory: hello
       buildName: SampleApp
       buildNumber: 1   
       
@@ -30,35 +30,9 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
+            - dotnet restore SquareApp.csproj
+            - dotnet build SquareApp.csproj
+            - dotnet publish 
             - echo $my_env_var
-            - if [ -z $app_version ]; then add_pipeline_variables app_version=1.0.0; else app_version=$(bump_semver $app_version minor); fi
-            - write_output myInfo "buildNumber=$app_version"
-            - add_run_variables run_var="hello"
-      - name: step_2
-        type: Bash
-        configuration:
-          inputResources:
-            - name: myInfo           
-          runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                versions: ['11']
-        execution:
-          onExecute:
-            - echo $run_var 
-            - echo $res_myInfo_buildNumber
             
-            
-            jobs:
-- name: build-service
-  public: true
-  serial: true
-  plan:
-  
-  - task: build-and-pkg
-    file: service-repo/ci/tasks/build.yml
-  - put: deploy-dev-env
-    params:
-      manifest: service-repo/manifest.yml
+    
