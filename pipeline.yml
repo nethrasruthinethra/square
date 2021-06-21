@@ -22,7 +22,7 @@ pipelines:
           my_env_var: "hello" 
     steps:
       - name: step_1
-        type: PowerShell
+        type: Bash
         configuration:
           inputResources:
             - name: mydotnetRepo
