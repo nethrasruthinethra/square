@@ -30,8 +30,8 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - dotnet restore SquareApp.csproj
-            - dotnet build SquareApp.csproj
+            - dotnet restore SquareApp.sln
+            - dotnet build SquareApp.sln
             - dotnet publish 
             - echo $my_env_var
             
