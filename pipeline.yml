@@ -15,7 +15,7 @@ resources:
       buildNumber: 1   
       
 pipelines: 
-  - name: my_pipeline
+  - name: my_dotnetpipeline
     configuration:
       environmentVariables:
         readOnly:
