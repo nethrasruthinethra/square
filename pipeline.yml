@@ -49,3 +49,16 @@ pipelines:
           onExecute:
             - echo $run_var 
             - echo $res_myInfo_buildNumber
+            
+            
+            jobs:
+- name: build-service
+  public: true
+  serial: true
+  plan:
+  
+  - task: build-and-pkg
+    file: service-repo/ci/tasks/build.yml
+  - put: deploy-dev-env
+    params:
+      manifest: service-repo/manifest.yml
