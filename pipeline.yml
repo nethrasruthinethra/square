@@ -31,7 +31,4 @@ pipelines:
         execution:
           onExecute:
            - script: dotnet build
-            - dotnet publish 
-            - echo $my_env_var
-            
     
