@@ -10,7 +10,7 @@ resources:
   - name: mydotInfo
     type: BuildInfo
     configuration:
-      sourceArtifactory: hello
+      sourceArtifactory: default
       buildName: SampleApp
       buildNumber: 1   
       
