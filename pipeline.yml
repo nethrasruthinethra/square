@@ -30,7 +30,7 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - dotnet build SquareApp.sln
+            - msbuild SquareApp.sln
             - dotnet publish 
             - echo $my_env_var
             
