@@ -30,5 +30,5 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-           - script: dotnet build
+           - script: dotnet build SquareApp.sln
     
