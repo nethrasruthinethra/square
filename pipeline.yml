@@ -25,9 +25,9 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: myRepo
+            - name: mydotnetRepo
           outputResources:
-            - name: myInfo            
+            - name: mydotnetInfo            
         execution:
           onExecute:
             - echo $my_env_var
