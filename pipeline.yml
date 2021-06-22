@@ -31,4 +31,6 @@ pipelines:
         execution:
           onExecute:
             - dotnet build SquareApp.sln
+            - dotnet restore SquareApp.sln
+            - dotnet publish
     
