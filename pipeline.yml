@@ -36,9 +36,9 @@ pipelines:
             - mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
             - chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
             - chown root:root /etc/apt/sources.list.d/microsoft-prod.list
-            - apt-get install apt-transport-https -y
-            - apt-get update -y
-            - apt-get install dotnet-sdk-5.0 -y
+            - yum install apt-transport-https -y
+            - yum update -y
+            - yum install dotnet-sdk-5.0 -y
             - dotnet restore SquareApp.sln
             - dotnet build SquareApp.sln
            
