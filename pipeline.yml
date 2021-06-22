@@ -31,7 +31,7 @@ pipelines:
         execution:
           onExecute:
             - curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-            - sudo yum update && yum install -y dotnet-sdk-2.0.0
+            - sudo yum update -y && yum install -y dotnet-sdk-2.0.0
             - dotnet restore SquareApp.sln
             - dotnet build SquareApp.sln
            
