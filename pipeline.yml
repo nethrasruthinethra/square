@@ -33,7 +33,7 @@ pipelines:
             - sudo yum update; \
             - sudo yum install -y apt-transport-https && \
             - sudo yum update && \
-            - sudo yum install -y aspnetcore-runtime-5.0 
+            - sudo yum install -y aspnetcore-runtime-5.0 -y
             - dotnet restore SquareApp.sln
             - dotnet build SquareApp.sln
            
