@@ -31,6 +31,7 @@ pipelines:
         execution:
           onExecute:
             - wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb 
+            - sudo yum install dpkg-devel dpkg-dev -y
             - sudo dpkg -i packages-microsoft-prod.deb
             - sudo yum update
             - sudo apt install dotnet-sdk-2.1 
