@@ -35,5 +35,5 @@ pipelines:
             - sudo dpkg -i packages-microsoft-prod.deb 
             - dotnet build SquareApp.csproj
             - dotnet restore SquareApp.csproj
-            - dotnet publish
+            
     
