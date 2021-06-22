@@ -30,10 +30,9 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - sudo yum update -y; \
-            - sudo yum install -y apt-transport-https && \
-            - sudo yum update -y && \
-            - sudo yum install -y aspnetcore-runtime-5.0
+            - wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+            - sudo yum install dpkg-devel dpkg-dev -y
+            - sudo dpkg -i packages-microsoft-prod.deb
             - dotnet restore SquareApp.sln
             - dotnet build SquareApp.sln
            
