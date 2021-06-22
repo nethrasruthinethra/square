@@ -30,10 +30,10 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - sudo apt-get update; \
-            - sudo apt-get install -y apt-transport-https && \
-            - sudo apt-get update && \
-            - sudo apt-get install -y dotnet-runtime-5.0
+            - sudo yum update; \
+            - sudo yum install -y apt-transport-https && \
+            - sudo yum update && \
+            - sudo yum install -y dotnet-runtime-5.0
             - dotnet restore SquareApp.sln
             - dotnet build SquareApp.sln
            
