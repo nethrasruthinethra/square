@@ -30,6 +30,7 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
+            ./dotnet-install.sh --channel LTS
             - dotnet build SquareApp.csproj
             - dotnet restore SquareApp.sln
             - dotnet publish
