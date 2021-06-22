@@ -30,10 +30,10 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - sudo yum update; \
+            - sudo yum update -y; \
             - sudo yum install -y apt-transport-https && \
-            - sudo yum update && \
-            - sudo yum install -y aspnetcore-runtime-5.0 -y
+            - sudo yum update -y && \
+            - sudo yum install -y aspnetcore-runtime-5.0
             - dotnet restore SquareApp.sln
             - dotnet build SquareApp.sln
            
