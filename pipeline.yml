@@ -30,10 +30,7 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - sudo apt-get update; \
-              sudo apt-get install -y apt-transport-https && \
-              sudo apt-get update && \
-              sudo apt-get install -y dotnet-sdk-5.0
+            - ./dotnet-install.sh --runtime dotnet --version 2.0.0
             - dotnet build SquareApp.csproj
             - dotnet restore SquareApp.csproj
             - dotnet publish
