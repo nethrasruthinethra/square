@@ -30,7 +30,7 @@ pipelines:
             - name: mydotnetInfo            
         execution:
           onExecute:
-            - sudo yum update 
+            - sudo yum update -y
             - sudo yum install apt-transport-https 
             - sudo yum install dotnet-runtime-2.1  
             - dotnet restore SquareApp.sln
